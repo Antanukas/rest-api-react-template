@@ -25,7 +25,7 @@ http://localhost:9000/route-two prints `Hello RouteTwo`
 #### Application code structure
 
 - `api` package should contain REST Api code.
-- `assets` package should contain Frontend code
+- `assets` package should contain Frontend and Play integration code
   - playentrypoint package contains index.html and index controller which returns index view for all unrouted requests
   - routes file contains:
 
@@ -35,6 +35,9 @@ http://localhost:9000/route-two prints `Hello RouteTwo`
   ```
 
   to make sure index page is returned for all unmatched requests. Let React routing logic decide what to do next
+
+- `appui` folder contains JS code. It is not included into the final artifact.
+Webpack takes the code and produces `app/assets/jsentrypoint/app.bundle.js`
 
 ### Build integration
 

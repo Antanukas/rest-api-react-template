@@ -13,8 +13,8 @@ const plugins = [
 ];
 
 const path = require('path');
-const jsPath  = 'app/assets/jsentrypoint';
-const srcPath = path.join(__dirname, 'app/assets/jsentrypoint');
+const jsPath  = 'appui';
+const srcPath = path.join(__dirname, 'appui');
 
 if (isProduction) {
   plugins.push(new webpack.optimize.OccurenceOrderPlugin());
@@ -31,7 +31,7 @@ if (isProduction) {
 module.exports = {
   entry: ['babel-polyfill', path.join(srcPath, 'index.js')],
   output: {
-    path: path.resolve(__dirname, jsPath, 'build'),
+    path: path.resolve(__dirname, 'app/assets/jsentrypoint'),
     filename: 'app.bundle.js'
   },
   module: {
@@ -64,7 +64,7 @@ module.exports = {
     root: srcPath,
     extensions: ['', '.js'],
     modulesDirectories: [
-      'node_modules', '.', jsPath,
+      'node_modules', '.', srcPath,
     ],
     alias: {},
   },

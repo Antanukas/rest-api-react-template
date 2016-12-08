@@ -8,3 +8,4 @@ target
 /RUNNING_PID
 build
 node_modules
+app/assets/jsentrypoint
