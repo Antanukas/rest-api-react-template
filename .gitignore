@@ -6,5 +6,5 @@ target
 /.project
 /.settings
 /RUNNING_PID
-app/assets/javascripts/build
+build
 node_modules
