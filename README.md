@@ -25,8 +25,8 @@ http://localhost:9000/route-two prints `Hello RouteTwo`
 #### Application code structure
 
 - `api` package should contain REST Api code.
-- `assets` package should container Frontend code
-  - playentrypoint package contains index.html and index controller to be which gets returned for all unrouted requests
+- `assets` package should contain Frontend code
+  - playentrypoint package contains index.html and index controller which returns index view for all unrouted requests
   - routes file contains:
 
   ```
