@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-// Not using -p option for pruduction builds because uglyfy gets added twice
+// Not using -p option for production builds because uglify gets added twice
 const isProduction = process.env.NODE_ENV === 'production';
 const plugins = [
   new ExtractTextPlugin('styles.bundle.css', {
@@ -13,8 +13,8 @@ const plugins = [
 ];
 
 const path = require('path');
-const jsPath  = 'app/assets/javascripts';
-const srcPath = path.join(__dirname, 'app/assets/javascripts');
+const jsPath  = 'app/assets/jsentrypoint';
+const srcPath = path.join(__dirname, 'app/assets/jsentrypoint');
 
 if (isProduction) {
   plugins.push(new webpack.optimize.OccurenceOrderPlugin());
@@ -32,9 +32,7 @@ module.exports = {
   entry: ['babel-polyfill', path.join(srcPath, 'index.js')],
   output: {
     path: path.resolve(__dirname, jsPath, 'build'),
-    publicPath: '',
-    filename: 'app.bundle.js',
-    pathInfo: true
+    filename: 'app.bundle.js'
   },
   module: {
     loaders: [{

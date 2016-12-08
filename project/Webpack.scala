@@ -7,12 +7,6 @@ object Webpack {
     object WebpackHook extends PlayRunHook {
       var process: Option[Process] = None
 
-      override def beforeStarted() = {
-        process = Option(
-          Process("webpack", base).run()
-        )
-      }
-
       override def afterStarted(addr: InetSocketAddress) = {
         process = Option(
           Process("webpack --watch", base).run()

@@ -1,0 +1,14 @@
+@(title: String)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script src="@routes.Assets.versioned("jsentrypoint/build/app.bundle.js")"></script>
+    </body>
+</html>

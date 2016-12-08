@@ -15,9 +15,3 @@ libraryDependencies ++= Seq(
 )
 
 playRunHooks <+= baseDirectory.map(Webpack.apply)
-
-watchSources ~= { (ws: Seq[File]) =>
-  ws filterNot { path =>
-    path.getName.endsWith(".js") || path.getName == ("build")
-  }
-}
