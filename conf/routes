@@ -3,8 +3,8 @@
 GET /api/helloworld api.helloworld.HelloWorldController.helloWorld
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                 controllers.Assets.versioned(path="/public", file: Asset)
 
 # In order to use URLs without #
-GET     /                             assets.playentrypoint.IndexController.index()
-GET     /*path                        assets.playentrypoint.IndexController.wildcardIndex(path)
+GET     /                        controllers.Assets.versioned(path="/public", file = "index.html")
+GET     /*file                   assets.playentrypoint.IndexController.assetAt(file)
+

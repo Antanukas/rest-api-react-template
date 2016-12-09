@@ -1,5 +1,3 @@
-import play.sbt.PlayImport.PlayKeys.playRunHooks
-
 name := """rest-api-react-template"""
 
 version := "1.0-SNAPSHOT"
@@ -13,5 +11,3 @@ libraryDependencies ++= Seq(
   cache,
   javaWs
 )
-
-playRunHooks <+= baseDirectory.map(Webpack.apply)

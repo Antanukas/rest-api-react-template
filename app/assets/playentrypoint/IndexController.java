@@ -1,7 +1,10 @@
 package assets.playentrypoint;
 
-import assets.playentrypoint.html.index;
-import play.mvc.*;
+import java.util.regex.Pattern;
+
+import com.google.inject.Inject;
+import controllers.Assets;
+import play.mvc.Controller;
 
 /**
  * In order to use client side routing without # we need to make sure that on page reload
@@ -9,11 +12,21 @@ import play.mvc.*;
  */
 public class IndexController extends Controller {
 
-    public Result index() {
-        return ok(index.render("Rest Api React Template"));
+    private final Assets assets;
+
+    @Inject
+    public IndexController(controllers.Assets assets) {
+        this.assets = assets;
     }
 
-    public Result wildcardIndex(String path) {
-        return ok(index.render("Rest Api React Template"));
+    //Maybe makes sense to move this to config
+    private final Pattern ASSET_REGEX = Pattern.compile(".*\\.(js|img|ico|html|map)");
+
+    public play.api.mvc.Action<play.api.mvc.AnyContent> assetAt(String path) {
+        if (ASSET_REGEX.matcher(path).matches()) {
+            return assets.at("/public", path, false);
+        } else {
+            return assets.at("/public", "index.html", false);
+        }
     }
 }
